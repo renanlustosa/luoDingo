@@ -5,12 +5,8 @@
   "projects": {
     "luoDingo": {
       "projectType": "application",
-      "schematics": {
-        "@schematics/angular:application": {
-          "strict": true
-        }
-      },
-      "root": "src",
+      "schematics": {},
+      "root": "",
       "sourceRoot": "src",
       "prefix": "app",
       "architect": {
@@ -18,18 +14,18 @@
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "outputPath": "dist/luoDingo",
-            "index": "index.html",
-            "main": "main.ts",
-            "polyfills": "polyfills.ts",
+            "index": "src/index.html",
+            "main": "src/main.ts",
+            "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "aot": true,
             "assets": [
-              "favicon.ico",
-              "assets"
+              "src/favicon.ico",
+              "src/assets"
             ],
             "styles": [
-              "../node_modules/bootstrap/dist/css/bootstrap.min.css",
-              "styles.css"
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "src/styles.css"
             ],
             "scripts": []
           },
@@ -37,8 +33,8 @@
             "production": {
               "fileReplacements": [
                 {
-                  "replace": "environments/environment.ts",
-                  "with": "environments/environment.prod.ts"
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
                 }
               ],
               "optimization": true,
@@ -51,13 +47,13 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kb",
-                  "maximumError": "1mb"
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "2kb",
-                  "maximumError": "4kb"
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
                 }
               ]
             }
@@ -83,16 +79,16 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "test.ts",
-            "polyfills": "polyfills.ts",
+            "main": "src/test.ts",
+            "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
             "assets": [
-              "favicon.ico",
-              "assets"
+              "src/favicon.ico",
+              "src/assets"
             ],
             "styles": [
-              "styles.css"
+              "src/styles.css"
             ],
             "scripts": []
           }
