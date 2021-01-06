@@ -1,0 +1,14 @@
+.jumbotron {
+    background: ghostwhite;
+    padding: 50px;
+}
+.btn {
+    margin-top: 50px;
+}
+.btn-success {
+    background: #7ac70c;
+    border-radius: 16px;
+    border: 0;
+    padding-left: 50px;
+    padding-right: 50px;
+}
