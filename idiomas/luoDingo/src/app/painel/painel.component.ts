@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Frase } from '../shared/frase.model'
 import { FRASES } from './frases-mock'
 
@@ -15,12 +15,12 @@ export class PainelComponent implements OnInit {
   public resposta: string = ''
 
   public rodada: number = 0
-  public rodadaFrase: Frase
+  public rodadaFrase: Frase = new Frase(FRASES[0].fraseEng,FRASES[0].frasePtBr)
+  public progresso: number = 0
 
 
-  constructor() { 
-    this.rodadaFrase = this.frases[this.rodada]
-
+  constructor() {
+    this.atualizaRodada()
   }
 
   ngOnInit(): void {
@@ -34,11 +34,27 @@ export class PainelComponent implements OnInit {
     
     if(this.rodadaFrase.frasePtBr == this.resposta) {
       alert('CORRETO!')
+
+      //trocar pergunta da rodada
       this.rodada++
+
+      //progresso
+      this.progresso = this.progresso + (100 / this.frases.length)
+
+      //atualizar objeto rodada frase
       console.log(this.rodada)
-      this.rodadaFrase = this.frases[this.rodada]
+      this.atualizaRodada()
+
     } else {
       alert('INCORRETO!')
     }
+  }
+  
+  public atualizaRodada(): void {
+    // define a frase da rodada
+    this.rodadaFrase = this.frases[this.rodada]
+
+    //limpar a resposta
+    this.resposta = ''
   }
 }
