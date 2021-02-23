@@ -5,5 +5,25 @@
 </div>
 
 <ng-template #fimDeJogo>
-    <p>CAIU NO ELSE</p>
+    <div *ngIf="tipoEncerramento === 'derrota'; else fimDeJogoVitoria" class="container">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <img src="../assets/punpuntriste.png" class="" alt="...">
+                    <h3>Infelizmente suas tentativas acabaram.</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #fimDeJogoVitoria>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <img src="../assets/punpunfeliz.png" class="" alt="...">
+                <h3>Parabéns. Você ganhou!</h3>
+            </div>
+        </div>
+    </div>
 </ng-template>
