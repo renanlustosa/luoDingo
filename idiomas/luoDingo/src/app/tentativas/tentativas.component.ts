@@ -25,8 +25,6 @@ export class TentativasComponent implements OnInit {
     }
   }
 
-  ngOnInit(): void {
-    console.log('tentativas: ', this.tentativas)
-  }
+  ngOnInit(): void {}
 
 }
